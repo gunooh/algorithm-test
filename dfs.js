@@ -13,11 +13,11 @@ const dfs = (graph, node, visited = new Set()) => {
   for (const neighbor of graph[node]) {
     if(!visited.has(neighbor)) {
       dfs(graph, neighbor, visited);
-    }
-  }
-}
+    }      
+  } 
+}                     
 
-const graph = {
+const graph = {           
   A: ['B', 'C'],
   B: ['A', 'D', 'E'],
   C: ['A', 'F'],
