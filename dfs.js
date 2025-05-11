@@ -10,11 +10,11 @@ const dfs = (graph, node, visited = new Set()) => {
   visited.add(node);
   console.log(node);
 
-  graph[node].forEach((neighbor) => {
+  for (const neighbor of graph[node]) {
     if(!visited.has(neighbor)) {
       dfs(graph, neighbor, visited);
     }
-  })
+  }
 }
 
 const graph = {
@@ -26,4 +26,6 @@ const graph = {
   F: ['C'],
 };
 
-dfs(graph, 'A');
+dfs(graph, 'A'); 
+
+// 예상 결과 : A B D E C F
