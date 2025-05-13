@@ -1,4 +1,4 @@
-/* 그래프 상태          
+/* 그래프 상태
      A
    /   \
   B     C
@@ -11,13 +11,13 @@ const dfs = (graph, node, visited = new Set()) => {
   console.log(node);
 
   for (const neighbor of graph[node]) {
-    if(!visited.has(neighbor)) {
+    if (!visited.has(neighbor)) {
       dfs(graph, neighbor, visited);
-    }      
-  } 
-}                     
+    }
+  }
+};
 
-const graph = {           
+const graph = {
   A: ['B', 'C'],
   B: ['A', 'D', 'E'],
   C: ['A', 'F'],
@@ -26,6 +26,6 @@ const graph = {
   F: ['C'],
 };
 
-dfs(graph, 'A'); 
+dfs(graph, 'A');
 
 // 예상 결과 : A B D E C F
