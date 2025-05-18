@@ -14,28 +14,32 @@
  * 사용할 수 있는 숫자가 담긴 배열 numbers, 타겟 넘버 target이 매개변수로 주어질 때 숫자를 적절히 더하고 빼서 타겟 넘버를 만드는 방법의 수를 return 하도록 solution 함수를 완성해주세요.
  */
 
-const solution = (numbers, target) => {
-  let count = 0;
-  const queue = [{ idx: 0, sum: 0 }];
+// 기존 버전
+// shift() 연산때문에 시간초과
+// const solution = (numbers, target) => {
+//   let count = 0;
+//   const queue = [{ idx: 0, sum: 0 }];
 
-  while (queue.length > 0) {
-    const { idx, sum } = queue.shift();
-    if (idx === numbers.length) {
-      count += sum === target ? 1 : 0;
-      continue;
-    }
+//   while (queue.length > 0) {
+//     const { idx, sum } = queue.shift();
+//     if (idx === numbers.length) {
+//       count += sum === target ? 1 : 0;
+//       continue;
+//     }
 
-    const bfs = () => {
-      queue.push({ idx: idx + 1, sum: sum + numbers[idx] });
-      queue.push({ idx: idx + 1, sum: sum - numbers[idx] });
-    };
+//     const bfs = () => {
+//       queue.push({ idx: idx + 1, sum: sum + numbers[idx] });
+//       queue.push({ idx: idx + 1, sum: sum - numbers[idx] });
+//     };
 
-    bfs();
-  }
+//     bfs();
+//   }
 
-  return count;
-};
+//   return count;
+// };
 
+// 개선된 버전
+// shift() 제거하고 포인터 변수(head) 사용
 const solution = (numbers, target) => {
   let count = 0;
   const queue = [{ index: 0, sum: 0 }];
